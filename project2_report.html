@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Daniel Ramirez</strong> — <em>dar009@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Civilian complaints against the NYPD show that the department is doing a poor job.</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="/images/nypd-malpractice-fixfix.png" alt="A set of 3 data visualizations that illustrate the NYPD does a poor job."  style="max-width: 100%; height: auto;"/>
+          <figcaption>The trends in the line plots show increasing numbers of complaints and a growing police budget. This shows the NYPD doesn't improve even though they have more resources. The bar plot shows that justice is not often served for police misconduct.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>The annotations are honest in their content, but they push the viewer to see it in only one way. Shading the region under the curve to show the years that mayors that were considered tough on crime is effective because the majority of the complaints fall under these years, and it reinforces the claim that it is the NYPD doing a poor job. This gets an honesty score of 1.</li>
+          <li>The barplot was chosen to show the disparity in the proportions of the kinds of outcomes for complaints. The plot is honest in its depiction. The bars make for a slightly less effective visual because the middle bar is about as big as the one being highlighted in red, making the disparity seem less large. This gets a score of 2.</li>
+          <li>The data after 2018 is dropped from the complaints line chart. This was done because there was incomplete data in 2020 and there was a drop in complaints in 2019. By not showing the number of complaints dropping in 2019, the plot more effectively conveys the message; however, cutting the data off at 2018 is mildly deceptive. This gets a score of -1.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="/images/bib-fix-clean.png" alt="A set of 3 plots showing the NYPD is doing a good job. The line plots attribute increse in complaints to increase in CCRB budget. The pie chart shows that 3/4 of complaints show no misconduct found." style="max-width: 100%; height: auto;"/>
+          <figcaption>The pie chart shows that three quarters of all complaints show no misconduct, indicating NYPD is doing a good job. The line charts show that complaints increase as the CCRB budget increases, so the complaints can be attributed to better access to reporting  through increased CCRB resources.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>The pie chart is quite decptive. The pie was chosen instead of bars because angles are harder to read than bar lengths, and the complaint data is grouped into substantiated complaints and complaints where no misconduct was found. This is deceptive and effective. This gets a score of -2.</li>
+          <li>The complaint line chart is paired with a line chart of the CCRB budget. This is done to suggest that the complaints are increasing because the CCRB has more resources, including a new reporting method. This could explain some of the increase, but not all. This gets a score of -1.</li>
+          <li>The entire visualization makes use of titles and annotations to persuade the viewer to accept the takeaway being presented. These add context to push the narrative presented. This is not entirely honest, but not entierly dishonest. This warrants a score of -0.5.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>This project was a fun exercise in the art of designing persuasive visuals. One of the more difficult things to do was to effectively advocate against a proposition that I believe in. Let's explore the visualizations in more detail.</p>
+        <p>The visualization showing the NYPD doing a poor job is more honest in its presentation of the data than the one against the proposition. Desinging this visualization was tougher than expected because there were many ways to have approached the topic. I considered showing the overrepresentation of hispanic and black complainants and comparing it to the population demographics of New York. I decided to go with the current version because I think that the line chart shows an obvious trend which is easy to digest, but I think that the alternative idea would have also been a good and effective option. Trying to think of ways to use deception in the visualization was another challenge. I think that this visualizaiton was maybe too honest, so I think it would be valuable to explore deceptive visualizaiton techniques further.</p>
+        <p>The visualization showing the NYPD doing a good job is potentially more effective in some ways, but equally, less effective in other ways. I think the highlight of this visualization is in the way that the pie chart groups the data. The group showing that no misconduct was found is comprised of the complaints that resulted in exoneration or an unsubstantiated complaint. The unsubstantiated complaints are the key here because unsubstantiated complaints are those that could be false complaints or could also be valid complaints where the CCRB review was inconclusive. By grouping the unsubstantiated and exonerated complaints, I was able to effectively erase those possible valid complaints by labeling them as complaints where the CCRB found no misconduct, which is technically true. While this aspect of the visualization was good, I think the line charts suffer because they are somewhat plain and rely heavily on the titles and annotations.</p>
+        <p>Overall, it was surprising how tough it was to create effective visualizations while trying to incorporate deceptive techniques. This experience demonstrated the weight that the analyst carries when working with data. The analyst chooses which techniques to make use of and for what purposes, leading to the question: how can one distinguish between acceptable and misleading persuasive choices? The answer is not entirely clear, but analysts must choose to make their own best effort to accurately and earnestly represent the data. Ethical analyses and visualizations comes only with a commitment to truth, but sometimes there may be more than one objective truth in the same dataset. It is, then, one's responsibility to always assume a healthy level skepticism when engaging with visualizations. </p>
+      </section>
+    </main>
+  </body>
+</html>
